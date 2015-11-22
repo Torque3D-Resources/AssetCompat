@@ -6,15 +6,17 @@
 // sophisicated engines must be implemented as engine functions.
 //------------------------------------------------------------------------------
 
-package PlayerCompatability
+function alxCreateSource(%profile, %file)
 {
-    // The Tribes 2 engine behavior is to auto-fade the blown up player
-    // upon calling this function.
-    function Player::blowup(%this)
-    {
-        parent::blowup(%this);
-        %this.startFade(1,0,1);
-    }
-};
+    %handle = sfxCreateSource(%profile, %file);
+}
 
-activatePackage(PlayerCompatability);
+function alxPlay(%handle)
+{
+    %handle.play(-1);
+}
+
+function alxGetWaveLen(%file)
+{
+
+}
