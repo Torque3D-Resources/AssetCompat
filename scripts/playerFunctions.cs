@@ -8,5 +8,5 @@
 
 function Player::setArmor(%this, %armor)
 {
-    %this.setDatablock(%armor @ %this.client.sex + this.%client.race + "Armor");
+    %this.setDatablock(%armor @ %this.client.sex @ this.%client.race @ "Armor");
 }
