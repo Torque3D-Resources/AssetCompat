@@ -9,5 +9,5 @@
 // Apparently our Torque3D build already has this in it, how convenient.
 function mouseJet(%jetting)
 {
-    $player::jumpJetTrigger = %jetting;
+    $mvTriggerCount1 = %jetting;
 }
