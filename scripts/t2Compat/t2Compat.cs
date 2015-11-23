@@ -10,3 +10,4 @@
 exec("t2Compat/etcFunctions.cs");
 exec("t2Compat/audioFunctions.cs");
 exec("t2Compat/playerFunctions.cs");
+exec("t2Compat/inputFunctions.cs");
