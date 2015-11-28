@@ -7,7 +7,7 @@
 // functionality.
 //------------------------------------------------------------------------------
 
-exec("t2Compat/etcFunctions.cs");
-exec("t2Compat/audioFunctions.cs");
-exec("t2Compat/playerFunctions.cs");
-exec("t2Compat/inputFunctions.cs");
+exec("./etcFunctions.cs");
+exec("./audioFunctions.cs");
+exec("./playerFunctions.cs");
+exec("./inputFunctions.cs");
