@@ -1,12 +1,25 @@
+exec ("materials.cs");
+new SimSet(IIObjects) {
+};
+function serverCmdcollada() {
+    for (%i=0; %i<IIObjects.getCount(); %i++) {
+        changeToCollada(IIObjects.getObject(%i));
+    }
+    while(IIObjects.getCount() > 0) {
+        IIObjects.getObject(0).delete();
+    }
+}
 function InteriorInstance::onAdd(%this) {
-    %this.exportToCollada(false);
-    %ts = new TSStatic() {
-        shapeName="compat/base/interiors/" @ getSubStr(%this.getModelFile(),0,strpos(%this.getModelFile(),".dif")) @ ".dae";
+    IIObjects.add(%this);
+}
+function changeToCollada(%ii) {
+    %ii.exportToCollada(false);
+    $ts = new TSStatic() {
+        shapeName="compat/base/interiors/" @ getSubStr(%ii.getModelFile(),0,strpos(%ii.getModelFile(),".dif")) @ ".dae";
 	    collisionType="Visible Mesh";
         decalType = "Visible Mesh";
-        position=%this.position;
-        rotation=%this.rotation;
-        scale=%this.scale;
+        position=%ii.position;
+        rotation=%ii.rotation;
+        scale=%ii.scale;
     };
-    %this.delete();
 }
