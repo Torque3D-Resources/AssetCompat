@@ -6,7 +6,10 @@
 // Torque Script & engine declared functions that implement missing
 // functionality.
 //------------------------------------------------------------------------------
-
+$fixInterior=1;
+if ($fixInterior) {
+    exec ("./interiorFunctions.cs");
+}
 exec("./etcFunctions.cs");
 exec("./audioFunctions.cs");
 exec("./playerFunctions.cs");
