@@ -2,7 +2,7 @@ import os
 import sys
 
 class Application(object):
-    ignored_directories = ["textures", "commander", "gui", "details", "special"]
+    ignored_directories = ["textures", "commander", "gui"]
 
     material_template = """
 singleton Material({name})
@@ -33,8 +33,10 @@ singleton Material({name})
             if (path == "."):
                 for exclusion in self.ignored_directories:
                     try:
-                        directories.remove("exclusion")
+                        directories.remove(exclusion)
                     except ValueError: pass
+
+                continue
 
             for file in files:
                 if (os.path.isfile(file) is not True):
@@ -44,6 +46,7 @@ singleton Material({name})
 
                 material_name = os.path.basename(full_path)
                 material_name = os.path.splitext(material_name)[0].upper()
+                material_name = material_name.replace(".", "")
 
                 material = { "name": material_name, "path": full_path, "opening": "{", "closing": "}" }
                 materials.append(material)
